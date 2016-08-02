@@ -1,0 +1,14 @@
+dependencies {
+	compile('junit:junit:4.11')
+	compile('org.seleniumhq.selenium:selenium-java:2.53.1')
+
+    compile("org.slf4j:slf4j-api:1.7.12")
+    compile("org.apache.logging.log4j:log4j-slf4j-impl:2.3")
+    compile("org.apache.logging.log4j:log4j-core:2.3")
+    
+    compile('com.google.guava:guava:18.0')
+    compile('org.assertj:assertj-assertions-generator:2.0.0') {
+        exclude module: 'logback-classic'
+    }
+    compile('org.assertj:assertj-core:2.1.0')
+}

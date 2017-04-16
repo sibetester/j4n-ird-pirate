@@ -17,7 +17,7 @@ public class PAYEKiwisaverDeductionsCalculatorTest {
     public void testEmployeePAYE() {
 
         SummaryPage summaryPage = UserAndTaxYearPage.navigateTo()
-            .enterUserAndTaxDetails("Employee", "1 April 2016 to 31 March 2017")
+            .enterUserAndTaxDetails("Employee", "1 April 2017 to 31 March 2018")
             .enterPayDetails("Test User", "TEST1234", "M", "Weekly", "1,024.00", "Net");
 
         Assertions.assertThat(summaryPage)

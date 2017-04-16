@@ -14,22 +14,22 @@ public class SummaryPage {
 
     private WebElement html;
 
-    @FindBy(css = "#summary84 > div > table > tbody > tr:nth-child(1) > td:nth-child(2)")
+    @FindBy(css = "#summary85 > div > table > tbody > tr:nth-child(1) > td:nth-child(2)")
     private WebElement yourName;
 
-    @FindBy(css = "#summary84 > div > table > tbody > tr:nth-child(2) > td:nth-child(2)")
+    @FindBy(css = "#summary85 > div > table > tbody > tr:nth-child(2) > td:nth-child(2)")
     private WebElement referenceNumber;
 
-    @FindBy(css = "#summary84 > div > table > tbody > tr:nth-child(3) > td:nth-child(2)")
+    @FindBy(css = "#summary85 > div > table > tbody > tr:nth-child(3) > td:nth-child(2)")
     private WebElement taxCode;
 
-    @FindBy(css = "#summary95 > div > table > tbody > tr:nth-child(1) > td:nth-child(2)")
+    @FindBy(css = "#summary96 > div > table > tbody > tr:nth-child(1) > td:nth-child(2)")
     private WebElement payFrequency;
 
-    @FindBy(css = "#summary95 > div > table > tbody > tr:nth-child(3) > td:nth-child(2)")
+    @FindBy(css = "#summary96 > div > table > tbody > tr:nth-child(3) > td:nth-child(2)")
     private WebElement payAmount;
 
-    @FindBy(css = "#summary103 > div > table > tbody > tr:nth-child(2) > td:nth-child(3)")
+    @FindBy(css = "#summary104 > div > table > tbody > tr:nth-child(2) > td:nth-child(3)")
     private WebElement calculationPAYE;
 
     public static SummaryPage landAt() {

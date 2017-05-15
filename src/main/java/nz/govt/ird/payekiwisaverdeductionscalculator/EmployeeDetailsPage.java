@@ -44,6 +44,28 @@ public class EmployeeDetailsPage {
     @FindBy(id = "submit")
     private WebElement continueButton;
 
+    @FindBy(id = "n110")
+    private WebElement selectSaverMemberDisabled;
+
+    @FindBy(id = "n100")
+    private WebElement selectSaverMemberEnabled;
+
+    @FindBy(id = "qss3Interviews_PAYECalculatorUpdated_xintglobalglobal28")
+    private WebElement employeeDeductions;
+
+    @FindBy(id = "qss3Interviews_PAYECalculatorUpdated_xintglobalglobal30")
+    private WebElement employerContributions;
+
+    @FindBy(id = "n140")
+    private WebElement selectFundMemberEnabled;
+
+    @FindBy(id = "n150")
+    private WebElement selectFundMemberDisabled;
+
+    @FindBy(id = "qss3Interviews_PAYECalculatorUpdated_xintglobalglobal35")
+    private WebElement fundEmployerContributions;
+
+
     public static EmployeeDetailsPage landAt() {
         EmployeeDetailsPage result = new EmployeeDetailsPage(WebDriverHolder.get());
         PageFactory.initElements(WebDriverHolder.get(), result);
@@ -51,11 +73,12 @@ public class EmployeeDetailsPage {
         return result;
     }
 
+
     private EmployeeDetailsPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public SummaryPage enterPayDetails(String name, String reference, String tax, String frequency, String perPay, String amount) {
+    public SummaryPage enterPayDetails(String name, String reference, String tax, String frequency, String perPay, String amount, boolean isSaverMember, String deduction, String saverContributions, boolean isFundMember, String fundContributions) {
 
         yourName.sendKeys(name);
         referenceNumber.sendKeys(reference);
@@ -64,6 +87,12 @@ public class EmployeeDetailsPage {
         (new Select(payFrequency)).selectByValue(frequency);
         salaryWagePerPay.sendKeys(perPay);
         selectAmountNetOrGross(amount);
+
+        //selectSaverMember(isSaverMember);
+        (new Select(employeeDeductions)).selectByValue(deduction);
+        employerContributions.sendKeys(saverContributions);
+        //selectFundMember(isFundMember);
+        //fundEmployerContributions.sendKeys(fundContributions);
 
         continueButton.click();
 
@@ -74,12 +103,30 @@ public class EmployeeDetailsPage {
     private void selectAmountNetOrGross(String amount) {
         if (amount.contentEquals("Gross")) {
             grossPay.click();
-        }
-        else if (amount.contentEquals("Net")) {
+        } else if (amount.contentEquals("Net")) {
             netPay.click();
-        }
-        else {
+        } else {
             logger.warn("Invalid option for amount: " + amount);
         }
     }
+
+    private void selectSaverMember(boolean isMember) {
+        if (isMember) {
+            selectSaverMemberEnabled.click();
+        } else {
+            selectSaverMemberDisabled.click();
+        }
+
+    }
+
+    private void selectFundMember(boolean isMember) {
+        if (isMember) {
+            selectFundMemberEnabled.click();
+        } else {
+            selectFundMemberDisabled.click();
+        }
+
+    }
+
+
 }

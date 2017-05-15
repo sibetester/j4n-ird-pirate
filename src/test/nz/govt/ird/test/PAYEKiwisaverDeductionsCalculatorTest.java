@@ -17,15 +17,16 @@ public class PAYEKiwisaverDeductionsCalculatorTest {
     public void testEmployeePAYE() {
 
         SummaryPage summaryPage = UserAndTaxYearPage.navigateTo()
-            .enterUserAndTaxDetails("Employee", "1 April 2017 to 31 March 2018")
-            .enterPayDetails("Test User", "TEST1234", "M", "Weekly", "1,024.00", "Net");
+                .enterUserAndTaxDetails("Employee", "1 April 2017 to 31 March 2018")
+                .enterPayDetails("Test User", "TEST1234", "M", "Weekly", "1,024.00", "Net", true, "0.03", "5", true, "100");
 
         Assertions.assertThat(summaryPage)
-            .hasName("Test User")
-            .hasReferenceNumber("TEST1234")
-            .hasTaxCode("M")
-            .hasPayFrequency("Weekly")
-            .hasPayAmount("$1,024.00 net");
+                .hasName("Test User")
+                .hasReferenceNumber("TEST1234")
+                .hasTaxCode("M")
+                .hasPayFrequency("Weekly")
+                .hasPayAmount("$1,024.00 net")
+                .hasDeductionPercentage("3.0%");
     }
 
 }

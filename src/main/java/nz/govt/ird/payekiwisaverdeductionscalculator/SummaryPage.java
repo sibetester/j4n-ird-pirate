@@ -32,6 +32,9 @@ public class SummaryPage {
     @FindBy(css = "#summary104 > div > table > tbody > tr:nth-child(2) > td:nth-child(3)")
     private WebElement calculationPAYE;
 
+    @FindBy(css = "#summary85 > div > table > tbody > tr:nth-child(4) > td:nth-child(2)")
+    private WebElement deductionPercentage;
+
     public static SummaryPage landAt() {
         SummaryPage result = new SummaryPage(WebDriverHolder.get());
         PageFactory.initElements(WebDriverHolder.get(), result);
@@ -65,5 +68,9 @@ public class SummaryPage {
 
     public String getCalculationPAYE() {
         return calculationPAYE.getText();
+    }
+
+    public String getDeductionPercentage() {
+        return deductionPercentage.getText();
     }
 }
